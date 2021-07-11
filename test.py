@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import matplotlib
+import matplotlib.pyplot as plt
 
 classes = pd.read_excel('data/klassen_21-22.xlsx')
 classes = classes.drop(classes.index[-7:])
@@ -12,8 +12,9 @@ classes['ZZ'].fillna('', inplace=True)
 
 
 
-print('höchster Notenschnitt: ', classes['MW'].max())
-print('tiefster Notenschnitt: ', classes['MW'].min())
-print('mittlerer Notenschnitt: ', classes['MW'].mean())
+print(f"höchster Notenschnitt:\t{classes['MW'].max():.2f}")
+print(f"tiefster Notenschnitt:\t{classes['MW'].min():.2f}")
+print(f"mittlerer Notenschnitt:\t{classes['MW'].mean():.2f}")
 
-classes['MW'].plot.hist(bins=10)
+classes['MW'].plot.hist(bins=20)
+plt.savefig('output/Notenverteilung.pdf')
