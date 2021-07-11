@@ -4,3 +4,4 @@ Pipfile
 .vscode/launch.json
 data/
 output/
+.DS_Store
