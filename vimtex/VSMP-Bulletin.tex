@@ -1,0 +1,118 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+% Vorlage für Artikel im VSMP-Bulletin
+% Bemerkungen:
+% - .tex-File muss mit XeLaTex kompiliert werden
+% - Schriftarten "Crimson Pro" und "League Spartan" müssen installiert sein
+
+
+\documentclass[11pt,a4paper]{article} % Papierformat und Standardschriftgrösse festlegen
+
+% Pakete installieren
+\usepackage{mathspec,xltxtra,xunicode}
+\usepackage[ngerman,french,italian]{babel}
+\usepackage{geometry} 
+\usepackage{parskip}
+\usepackage{titling}
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{caption}
+
+\addto\captionsngerman{\renewcommand{\refname}{Links}} % Bezeichnung für Referenzen anpassen
+\captionsetup{skip=10pt,font=small,labelfont=bf,singlelinecheck=off} %  Formatierung für Bildunterschriften festlegen
+
+
+
+\setmainfont{Minion Pro}
+
+\setsansfont{FuturaStd}[
+  UprightFont = *-Book,
+  BoldFont    = *-Medium,
+]
+
+% Optionen für Formeln
+\setmathrm{Minion Pro}
+
+% Proportionalziffern oder Mediävalziffern für Formeln
+% \setmathsfont(Digits,Latin,Greek)[Numbers={Proportional}]{Crimson Pro}
+\setmathsfont(Digits,Latin,Greek)[Numbers={OldStyle,Proportional}]{Crimson Pro}
+
+% Verzeichnis für Abbildungen
+\graphicspath{{Images/}}
+
+
+\geometry{margin={2cm,2.5cm}} % Seitenränder festlegen
+\pagestyle{empty} % Seitenzahlen unterdrücken
+
+% Titel formatieren
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+\begin{flushleft}
+  \LARGE\textbf{\@title}
+
+  \large\@author
+\end{flushleft}\egroup
+}
+\makeatother
+
+
+\allsectionsfont{\bfseries\sffamily} % Schriftart für Überschriften festlegen
+
+\title{{\sffamily\bfseries Titel des Artikels}} % Titel des Artikels
+\author{{\sffamily Lena Muster, Einstein Gymnasium, lena.muster@einstein.ch}} % Name des Autors
+
+\date{} % Datum unterdrücken
+
+\begin{document}
+
+\selectlanguage{ngerman} % Sprache auswählen (ngerman, french, italian)
+
+
+\clearpage\maketitle % Titelseite erzeugen
+\thispagestyle{empty}
+
+\section{Abschnitt 1}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+\begin{equation}
+E^2 = \left(p c\right)^2+\left(m c^2\right)^2
+\end{equation}
+
+\section{Abschnitt 2}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+
+\begin{figure}[H]
+\includegraphics{vsmp_sspmp_ssimf.eps}
+\label{fig:logo}
+\caption{Logo VMSP/SSPMP/SSIMF \cite{vsmp,sspmp,ssimf}}
+\end{figure}
+
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+
+
+% Referenzen
+
+\begin{thebibliography}{9} % maximal 9 Referenzen
+%\begin{thebibliography}{10} % über 9 Referenzen
+
+\bibitem{vsmp}{ \href{http://www.vsmp.ch}{\emph{Verein Schweizerischer Mathematik- und Physiklehrkräfte} (www.vsmp.ch)}}
+\bibitem{sspmp}{ \href{http://www.sspmp.ch}{\emph{Société Suisse des Professeurs de Mathématiques et de Physique} (www.sspmp.ch)}}
+\bibitem{ssimf}{ \href{http://www.ssimf.ch}{\emph{Società Svizzera degli Insegnanti di Matematica e Fisica} (www.ssimf.ch)}}
+
+\end{thebibliography}
+
+
+
+\end{document}  
