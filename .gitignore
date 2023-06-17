@@ -4,3 +4,5 @@ Pipfile
 data/
 output/
 .DS_Store
+
+bbs/figures
