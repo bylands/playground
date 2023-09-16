@@ -1,0 +1,201 @@
+\documentclass[11pt,a4paper]{article} % Papierformat und Standardschriftgrösse festlegen
+
+% Pakete installieren
+\usepackage{amsmath}      % erweiterte mathematische Symbole
+% \usepackage{mathspec,xltxtra,xunicode}  % Unterstützung für OpenType
+\usepackage{mathfont}
+% \usepackage{unicode-math}
+\usepackage{polyglossia}  % Sprachunterstützung
+\usepackage{geometry}     % Formateinstellungen
+\usepackage{parskip}      % Absatzformatierung
+\usepackage{titling}      % Titelformatierung
+\usepackage{sectsty}      % Formatierung für Abschnitte
+\usepackage{float}        % erweiterte Formatierung für Abbildungen
+\usepackage{caption}      % Bildunterschriften
+\usepackage{graphicx}     % Einbinden von Bildern
+\usepackage{siunitx}      % Unterstützung von Einheiten
+\usepackage{hyperref}     % Formatierung von Links
+
+
+% Schriftarten festlegen
+\setmainfont{Minion 3}[
+		Numbers={OldStyle,Proportional}
+]
+
+\setsansfont{Futura Std}[
+  UprightFont = *-Book,
+  BoldFont    = *-Heavy,
+]
+
+\mathfont{Minion 3:Numbers=OldStyle}
+%\setmathsfont(Digits,Latin,Greek)[Numbers={OldStyle,Proportional}]{Minion Pro}
+% \exchangeforms{phi,theta}
+
+% Formatierungen definieren
+\setdefaultlanguage[variant=swiss]{german}  % Sprache Deutsch (Schweiz)
+\captionsetup{justification=raggedright,singlelinecheck=false}  % Bildunterschriften
+\graphicspath{{Bilder/}}  % Verzeichnis für Abbildungen
+
+\geometry{margin={2cm,2.5cm}} % Seitenränder festlegen
+\pagestyle{empty} % Seitenzahlen unterdrücken
+
+\pretitle{\begin{flushleft}\LARGE} % Schriftgrösse für Titel des Artikels festlegen
+\posttitle{\par\end{flushleft}\vskip 0.5em} % Titel linksbündig setzen
+
+\preauthor{\begin{flushleft}\large} % Schriftgrösse für Namen des Autors festlegen
+\postauthor{\par\end{flushleft}\vskip 0.5em} % Autor linksbündig setzen
+
+% \allsectionsfont{\bfseries\sffamily} % Schriftart für Überschriften festlegen
+
+
+% Titel
+\title{{\sffamily\bfseries Loaded Hoop}} % Titel des Artikels
+\author{{\sffamily Samuel Byland, MNG Rämibühl Zürich, samuel.byland@mng.ch}} % Name des Autors
+
+\date{} % Datum unterdrücken
+
+
+% Artikeltext
+\begin{document}
+
+\clearpage\maketitle % Titelseite erzeugen
+\thispagestyle{empty} % keine Kopf- und Fusszeilen
+
+\section{Einleitung}
+
+Viele der Probleme beim {\em International Young Physicists' Tournament} (kurz IYPT)  eignen sich hervorragend als Ausgangspunkt für projektartigen Unterricht. Häufig genügen einfache Hilfsmittel für die experimentelle Untersuchung, und die theoretische Behandlung kann sowohl vom Niveau als auch von der Tiefe her passend gewählt werden. Als Anregung für interessierte Lehrpersonen werden wir in loser Folge einige interessante Probleme und Lösungsansätze von Schweizer Teilnehmerinnen und Teilnehmern im Bulletin vorstellen.
+
+Das Problem ``Loaded Hoop'', welches im Rahmen des IYPT 2014 zu bearbeiten war,  lautet wie folgt:
+
+{\em ``Fasten a small weight to the inside of a hoop and set the hoop in motion by giving it an initial push. Investigate the hoop’s motion.''}
+
+In diesem Artikel wird am Beispiel der Schwingbewegung (für kleine und grosse Amplituden) auf eine mögliche Bewegung des Reifens eingegangen.
+
+\section{Theorie}
+
+\subsection{Bewegungsgleichung}
+
+Für einen starren Reifen, der ohne zu rutschen oder zu springen rollt, lassen sich die Bewegungsgleichungen relativ einfach herleiten. Die wichtigsten Grössen sind in Abb. \ref{fig:Reifen} angegeben.
+
+\begin{figure}[H]
+\includegraphics[scale=1.2]{Lageplan.pdf}
+\caption{Reifen mit Masse $m$ und Radius $r$ mit Zusatzmasse $m'$ im Abstand $r'$ vom Zentrum. Die Pfeile bezeichnen Gewichtskraft ($F_G$), Normalkraft ($F_N$) und Haftreibung ($F_R$).}
+\label{fig:Reifen}
+\end{figure}
+
+Die als punktförmig angenommene Zusatzmasse $m'$ befindet sich im Abstand $r'$ vom Zentrum des Reifens mit Radius $r$ und Masse $m$. Der gemeinsame Schwerpunkt (Angriffspunkt der Gewichtskraft) liegt im Abstand $\rho$ vom Zentrum, wobei
+\begin{equation}
+\rho=r'\,\frac{m'}{M}\quad\text{(mit der Gesamtmasse $M=m+m'$).}
+\end{equation}
+
+Bezüglich eines relativ zur Unterlage ruhenden Koordinatensystems bezeichnen $(x,y)$ die Koordinaten des  Schwerpunktes. Mit dem Drehwinkel $\varphi$ gilt:
+\begin{equation}\label{eq:Koordinaten}
+x=r\,\varphi - \rho\sin\varphi\quad\text{bzw.}\quad y=r-\rho\cos\varphi
+\end{equation}
+
+Für die Kräfte gelten die folgenden Beziehungen:
+\begin{align}
+F_G 		& = 	M\,g			\label{eq:FG}\\
+F_N		& =	M\,(\ddot y+g)	\label{eq:FN}\\
+F_R		& =	M\,\ddot x		\label{eq:FR}
+\end{align}
+
+Mit dem Trägheitsmoment $J$ und Gleichung (\ref{eq:Koordinaten}) ergibt sich damit für das totale Drehmoment:
+\begin{equation}
+\begin{split}\label{eq:deq}
+M_\text{{tot}} 	& =  J\,\ddot\varphi = - F_R \, (r-\rho\cos\varphi)-F_N\, \rho\sin\varphi\\
+						& =  -M\, \ddot x \, (r-\rho\cos\varphi)-M(\ddot y+g)\, \rho\sin\varphi\\
+						& = -M\,(r\ddot\varphi+\rho (\sin\varphi\,\dot\varphi^2-\cos\varphi\, \ddot\varphi)(r-\rho\cos\varphi)-M(\rho(\cos\varphi\,\dot\varphi^2+\sin\varphi\,\ddot\varphi+g)\\
+						& \qquad\cdot \rho\sin\varphi				
+\end{split}\end{equation}
+
+Zusammen mit den Anfangsbedingungen (Position und Geschwindigkeit) bestimmt diese (nichtlineare) Differentialgleichung die Bewegung des Reifens unter den angenommenen Bedingungen vollständig.
+
+
+\subsection{Kleine Winkel}
+
+Für kleine Winkel ($\varphi\ll 1$) und kleine Winkelgeschwindigkeiten ($\dot\varphi\ll 1$) kann Gleichung (\ref{eq:deq}) durch die Terme höchster Ordnung angenähert werden:
+
+\begin{equation}\label{eq:chareq}
+\ddot\varphi \approx -\frac{M\,g\rho}{J+M(r-\rho)^2}\,\varphi
+\end{equation}
+
+Dies entspricht der charakteristischen Gleichung für eine harmonische Schwingung mit der Schwingungsdauer
+
+\begin{equation}\label{eq:T}
+% T\approx2\pi\sqrt\frac{J+M(r-\rho)^2}{M\,g\rho}
+T\approx2\pi
+\end{equation}
+
+Interessanterweise entspricht dieser Ausdruck demjenigen für ein physikalisches Pendel, bei dem der Reifen mit Unwucht so aufgehängt wird, dass sich der Aufhängepunkt, der Schwerpunkt und das Reifenzentrum (in dieser Reihenfolge) auf einer Vertikalen befinden.
+
+\section{Messungen}
+
+Als Reifen wurden verschieden breite Stücke von Rohren (Kunststoff, Plexiglas, Aluminium) mit unterschiedlichen Massen und Durchmessern verwendet (Abb. \ref{fig:rohre}). Für die Unwucht wurden verschieden lange und dicke Metallstangen an den Innenrand der Rohre geklebt (Abb. \ref{fig:reifen}). 
+
+Bei der Messung der Schwingungsdauer bei kleinen Amplituden wurde eine gewöhnliche Stoppuhr verwendet. Jede Messung wurde fünfmal durchgeführt.
+
+Für genauere Bewegungsanalysen wurde mit einer Hochgeschwindigkeitskamera (Fastec Imaging SportsCam) mit 250 fps gefilmt und anschliessend die Position des Mittelpunktes mit der Software Tracker (\cite{Tracker}) nachverfolgt.
+
+\begin{figure}[H]
+
+\begin{minipage}{0.45\linewidth}
+\includegraphics[height=4cm]{Rohre.png}
+\caption{Unterschiedliche Rohre}
+\label{fig:rohre}
+\end{minipage}
+\quad
+\begin{minipage}{0.45\linewidth}
+\includegraphics[height=4cm]{Reifen.png}
+\caption{Reifen aus Kunststoffrohr mit Metallstange als Unwucht bei der Messung}
+\label{fig:reifen}
+\end{minipage}
+
+\end{figure}
+
+
+
+\section{Auswertung}
+
+\subsection{Schwingungen}
+
+Abbildung \ref{fig:klein} zeigt ein Beispiel für die Schwingungsdauer bei kleinen Amplituden für einen Kunststoffreifen (Durchmesser \SI{11}{cm}, Masse \SI{162}{g}) mit verschiedenen Zusatzmassen (Stativstangen mit Durchmesser \SI{1.4}{cm}, Massen von \SI{36}{g} bis \SI{360}{g}). Die Übereinstimmung mit der theoretisch berechneten Kurve (durchgezogene Linie) ist ausgezeichnet.
+
+\begin{figure}[H]
+\includegraphics{KleineWinkel.pdf}
+\caption{Schwingungsdauer bei kleiner Amplitude für unterschiedliche Zusatzmassen}
+\label{fig:klein}
+\end{figure}
+
+Für grössere Amplituden weicht die Bewegung von einer harmonischen Schwingung ab. Abbildung (\ref{fig:gross}) zeigt die Phasenraumdarstellung für verschiedene Amplituden. Die theoretischen Kurven weichen mit zunehmender Amplitude immer mehr von einer Ellipse ab. Die Streuung der Messpunkte ist einerseits auf die Ablesegenauigkeit beim Tracken zurückzuführen, andererseits zeigt sich hier auch der Einfluss der dissipativen Kräfte, welche zu einer Abnahme der Schwingungsenergie führen.
+
+\begin{figure}[H]
+\includegraphics{GrosseWinkel.pdf}
+\caption{Bewegung im Phasenraum bei unterschiedlich grossen Amplituden. Fehlerbalken wurden aus Gründen der Übersichtlichkeit weggelassen.}
+\label{fig:gross}
+\end{figure}
+
+\section{Ausblick}
+
+Die Auswertung der Schwingbewegungen deckt  nur einen kleinen Teil der möglichen Bewegungen ab. Weitergehende Analysen könnten auf das Überschwingen oder auf spannende Phänomene wie Rutschen oder Abheben eingehen. Theoretische Zugänge findet man in grosser Zahl (siehe Literatur) und die experimentelle Untersuchung sollte mit den beschriebenen Methoden problemlos möglich sein.
+
+\begin{thebibliography}{10}
+
+\bibitem{MR}{Das Problem Loaded Hoop wurde von Michael Rusterholz (MNG Rämibühl) bearbeitet. Die in diesem Artikel verwendeten Messungen führte er zusammen mit Sven Grübel (ebenfalls MNG Rämibühl) durch.}
+
+\bibitem{Tracker}{Tracker --- Video Analysis and Modeling Tool, \href{www.cabrillo.edu/~dbrown/tracker}{www.cabrillo.edu/~dbrown/tracker}}
+
+\bibitem{Taylor2010}{A. Taylor, M. Fehrs, {\em The dynamics of an eccentrically loaded hoop}, Am. J. Phys. 78, 496ff (2010}
+
+\bibitem{Theron2007}{W.F.D. Theron, M.F. Maritz, {\em The amazing variety of motions of a loaded hoop}, Math. Comput. Model., Vol. 47, pp 1077ff (2008)}
+
+\bibitem{Theron2008}{W.F.D. Theron, {\em Analysis of the Rolling Motion of Loaded Hoops}, Dissertation at Department of Applied Mathematics of the University of Stellenbosch, South Africa (2008)}
+
+\bibitem{Butler1999}{J.P. Butler, {\em Hopping Hoops Don't Hoop},Am. Math. Mon., Vol. 106, No. 6, pp 565ff (1999)}
+
+
+
+\end{thebibliography}
+
+
+\end{document}  

@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{mathspec,xltxtra,xunicode}  % Unterstützung für OpenType
+\usepackage[margin=0.25in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.18}
+
+% We will externalize the figures
+\usepgfplotslibrary{external}
+\tikzexternalize
+
+\setmainfont{Minion Pro}[
+		Numbers={OldStyle,Proportional}
+]
+
+\setmathsfont(Digits,Latin,Greek)[Numbers={OldStyle,Proportional}]{Minion Pro}
+\exchangeforms{phi,theta}
+
+
+\begin{document}
+
+%Here begins the 2D plot
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel = $x$,
+    ylabel = $f(x)$,
+    grid=major,
+    thick,
+    ymin=0
+]
+\addplot[
+    domain=-2:2, 
+    samples=200,
+    color=red
+]
+{exp(-x^2)};
+\addplot[
+    domain=-0.5:1.5, 
+    samples=200,
+    color=red
+]
+{-x^2+x+0.5};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage[european resistors, american inductors]{circuitikz}
+\usepackage{siunitx}
+\begin{document}
+\begin{center}
+\begin{circuitikz}[voltage shift=0.5, line width=0.5]
+    \draw
+    (0,0) to [vsourcesin, l={\qty{12.3}{\V} / \qty{50}{\Hz}}] (0,3) 
+    to [L, l=\qty{12}{\milli\H}, i=$i_L$, v=$v_L$] (4,3) to [short, -*] (4,3)
+    to [C, l=\qty{47}{\micro\F}, i>_=$i_C$, v=$v_C$] (4,0) to [short, -*] (4,0)
+    to [R, l=\qty{2.2}{\kilo\ohm}, i>_={$i_{R_2}=i_L$}, v=$v_{R_2}$] (0,0);
+    \draw
+    (4,3) -- (7,3) 
+    to [R, l=\qty{3.3}{\kilo\ohm}, i>_=$i_{R_1}$, v=$v_{R_1}$] (7,0)
+    -- (4,0);
+\end{circuitikz}
+\end{center}
+\end{document}
