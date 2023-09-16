@@ -4,7 +4,8 @@ Pipfile
 data/
 output/
 .DS_Store
-
+aux/
+Bilder/
 bbs/figures
 
 *.xlsx
