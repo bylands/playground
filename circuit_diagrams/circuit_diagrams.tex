@@ -1,8 +1,7 @@
-\documentclass{article}
+\documentclass{standalone}
 \usepackage[european resistors, american inductors]{circuitikz}
 \usepackage{siunitx}
 \begin{document}
-\begin{center}
 \begin{circuitikz}[voltage shift=0.5, line width=0.5]
     \draw
     (0,0) to [vsourcesin, l={\qty{12.3}{\V} / \qty{50}{\Hz}}] (0,3) 
@@ -14,5 +13,4 @@
     to [R, l=\qty{3.3}{\kilo\ohm}, i>_=$i_{R_1}$, v=$v_{R_1}$] (7,0)
     -- (4,0);
 \end{circuitikz}
-\end{center}
 \end{document}
