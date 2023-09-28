@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{mathspec,xltxtra,xunicode}  % Unterstützung für OpenType
+\usepackage[european resistors, american inductors]{circuitikz}
+\usepackage{siunitx}
+
+\setmainfont{Minion Pro}[
+		Numbers={OldStyle,Proportional}
+]
+
+\setmathsfont(Digits,Latin,Greek)[Numbers={OldStyle,Proportional}]{Minion Pro}
+\exchangeforms{phi,theta}
+
+\begin{document}
+\begin{circuitikz}[voltage shift=0.5, line width=0.5]
+    \ctikzset{bipoles/cuteswitch/thickness=0.5}
+    \draw
+    (0,0) to [battery1, invert, l={\qty{12}{\V}}] (0,3) 
+    to [cute opening switch, l={$t=0$}] (4,3) to [short, -*] (4,3)
+    to [R, l=\qty{150}{\ohm}] (4,0) to [short, -*] (4,0)
+    to (0,0);
+    \draw
+    (4,3) to [R, l=\qty{30}{\ohm}] (7,3) 
+    to [L, l=\qty{12}{\milli\H}] (7,0)
+    -- (4,0);
+\end{circuitikz}
+\end{document}
