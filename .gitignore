@@ -10,3 +10,5 @@ bbs/figures
 
 *.xlsx
 *.docx
+
+__pycache__
