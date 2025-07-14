@@ -9,3 +9,5 @@ Bilder/
 bbs/figures
 
 *.xlsx
+*.parquet
+
