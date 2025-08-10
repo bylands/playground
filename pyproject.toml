@@ -10,4 +10,6 @@ dependencies = [
     "polars>=1.31.0",
     "polars-root>=0.1.0",
     "requests>=2.32.4",
+    "scipy>=1.16.1",
+    "sympy>=1.14.0",
 ]
